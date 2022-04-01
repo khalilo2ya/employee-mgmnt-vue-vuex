@@ -1,23 +1,28 @@
 <template>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">Example Form  Employee</div>
+  <div class="container">
+    <el-card class="box-card">
+      <div slot="header" class="clearfix">
+          hello this is card
+            <el-page-header @back="goBack" content="detail">
+            </el-page-header>
+      </div>
+      <div>
+          <el-form ref="employeeForm" :model="form" label-width="120px">
+              <el-row :guuter="10">
 
-                    <div class="card-body">
-                        I'm an a form Employee
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+
+              </el-row>
+          </el-form>
+      </div>
+
+    </el-card>
+  </div>
 </template>
 
 <script>
-    export default {
-        mounted() {
-            console.log('Component mounted.')
-        }
-    }
+export default {
+  mounted() {
+    console.log("Component mounted.");
+  },
+};
 </script>

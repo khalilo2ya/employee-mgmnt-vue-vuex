@@ -6,7 +6,12 @@ use Illuminate\Http\Request;
 
 class EmployeeController extends Controller
 {
-    public function create(){
-        return view('employee.form');
+    public function create()
+    {
+        $data = [
+            'scope' => 'create',
+
+        ];
+        return view('employee.form')->with($data);
     }
 }
