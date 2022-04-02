@@ -157,22 +157,17 @@ class EmployeesController extends Controller
      */
     public function destroy($id)
     {
-
         try
         {
             $employee = Employee::find($id);
             $employee->delete();
-
             return response()->json([
                 'status' => 200,
                 'message' => 'Employee deleted successfully',
             ]);
-
-
         }catch(Exception $e)
         {
             dd($e);
         }
-
     }
 }
