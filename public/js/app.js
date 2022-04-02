@@ -6991,9 +6991,57 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: "employee-form",
+  props: {
+    scope: String
+  },
   mounted: function mounted() {
     console.log("Component mounted.");
+  },
+  data: function data() {
+    return {
+      form: {
+        name: null,
+        department: null,
+        section: null,
+        email: null
+      }
+    };
+  },
+  methods: {
+    goBack: function goBack() {
+      window.location.href = "/employees";
+    },
+    saveForm: function saveForm(formName) {
+      alert(formName);
+    }
   }
 });
 
@@ -92017,9 +92065,8 @@ var render = function () {
             slot: "header",
           },
           [
-            _vm._v("\n        hello this is card\n          "),
             _c("el-page-header", {
-              attrs: { content: "detail" },
+              attrs: { content: _vm.scope + " form" },
               on: { back: _vm.goBack },
             }),
           ],
@@ -92035,7 +92082,126 @@ var render = function () {
                 ref: "employeeForm",
                 attrs: { model: _vm.form, "label-width": "120px" },
               },
-              [_c("el-row", { attrs: { guuter: 10 } })],
+              [
+                _c(
+                  "el-row",
+                  { attrs: { guuter: 10 } },
+                  [
+                    _c(
+                      "el-form-item",
+                      { attrs: { label: "Name", required: "", prop: "name" } },
+                      [
+                        _c("el-input", {
+                          attrs: { "aria-placeholder": "Employee Name" },
+                          model: {
+                            value: _vm.form.name,
+                            callback: function ($$v) {
+                              _vm.$set(_vm.form, "name", $$v)
+                            },
+                            expression: "form.name",
+                          },
+                        }),
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "el-form-item",
+                      {
+                        attrs: {
+                          label: "Department",
+                          required: "",
+                          prop: "department",
+                        },
+                      },
+                      [
+                        _c("el-input", {
+                          attrs: { "aria-placeholder": "Department" },
+                          model: {
+                            value: _vm.form.department,
+                            callback: function ($$v) {
+                              _vm.$set(_vm.form, "department", $$v)
+                            },
+                            expression: "form.department",
+                          },
+                        }),
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "el-form-item",
+                      {
+                        attrs: {
+                          label: "Section",
+                          required: "",
+                          prop: "section",
+                        },
+                      },
+                      [
+                        _c("el-input", {
+                          attrs: { "aria-placeholder": "Section" },
+                          model: {
+                            value: _vm.form.section,
+                            callback: function ($$v) {
+                              _vm.$set(_vm.form, "section", $$v)
+                            },
+                            expression: "form.section",
+                          },
+                        }),
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "el-form-item",
+                      {
+                        attrs: { label: "Email", required: "", prop: "email" },
+                      },
+                      [
+                        _c("el-input", {
+                          attrs: { "aria-placeholder": "Email Adress" },
+                          model: {
+                            value: _vm.form.email,
+                            callback: function ($$v) {
+                              _vm.$set(_vm.form, "email", $$v)
+                            },
+                            expression: "form.email",
+                          },
+                        }),
+                      ],
+                      1
+                    ),
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "el-row",
+                  { attrs: { guuter: 10 } },
+                  [
+                    _c(
+                      "el-form-item",
+                      [
+                        _c(
+                          "el-button",
+                          {
+                            attrs: { type: "success" },
+                            on: {
+                              click: function ($event) {
+                                return _vm.saveForm("employeeForm")
+                              },
+                            },
+                          },
+                          [_vm._v("Save")]
+                        ),
+                      ],
+                      1
+                    ),
+                  ],
+                  1
+                ),
+              ],
               1
             ),
           ],

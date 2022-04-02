@@ -2,7 +2,7 @@
   <div class="container">
     <el-card class="box-card">
       <div slot="header" class="clearfix">
-        <el-page-header @back="goBack" content="detail"> </el-page-header>
+        <el-page-header @back="goBack" :content="`${scope} form`"> </el-page-header>
       </div>
       <div>
         <el-form ref="employeeForm" :model="form" label-width="120px">
@@ -48,6 +48,9 @@
 <script>
 export default {
   name: "employee-form",
+  props:{
+    scope:String
+  },
   mounted() {
     console.log("Component mounted.");
   },
