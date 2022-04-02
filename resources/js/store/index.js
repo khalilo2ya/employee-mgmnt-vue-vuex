@@ -1,24 +1,24 @@
-import  Vue  from 'vue';
+import Vue from 'vue';
 import Vuex from 'vuex';
 
 
-import getters from './getters.js';
-import mutations from './mutations.js';
-import  * as actions from './actions.js';
+import getters from './getters';
+import mutations from './mutations';
+import * as actions from './actions';
 
 Vue.use(Vuex);
 
+
 export const store = new Vuex.Store({
-    modules:{
+    modules: {
 
     },
     state: {
-
+        tableData: [],
     },
     mutations,
     actions,
     getters,
 });
-
 
 

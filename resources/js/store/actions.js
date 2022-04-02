@@ -1,7 +1,5 @@
 import Vue from 'vue';
 
-import { axios } from 'vue/types/umd';
-
 
 let loader = null;
 
@@ -18,13 +16,15 @@ function removeLoader() {
     loader.close();
 }
 
+
 export const saveEmployee = ({ commit }, payload) => {
+
     displayLoader();
 
-    axios(`/save-employee`, payload).then(res => {
+    axios.post(`/save-employee`, payload).then(res => {
         Vue.prototype.$notify({
             title: 'Success',
-            message: 'Employee added successfully',
+            message: 'Employee added Successfully',
             type: 'success',
         })
 
@@ -33,5 +33,51 @@ export const saveEmployee = ({ commit }, payload) => {
         setTimeout(() => {
             window.location.href = '/employees'
         }, 2000);
+    })
+}
+
+
+export const getEmployeesData = ({ commit }, payload) => {
+    axios.post(`/get-employee-data`, payload)
+        .then(response => {
+            commit('setTableData', response.data);
+        })
+}
+
+
+
+export const updateEmployee = ({ commit }, payload) => {
+
+    displayLoader('Update employee');
+
+    axios.put(`/update-employee/${payload.id}`, payload.form).then(res => {
+        Vue.prototype.$notify({
+            title: 'Success',
+            message: 'Employee Updated Successfully',
+            type: 'success',
+        })
+
+        removeLoader();
+
+        setTimeout(() => {
+            window.location.href = '/employees'
+        }, 2000);
+    })
+}
+
+
+
+export const deleteEmployee = ({ commit }, payload) => {
+
+    displayLoader('Deleting employee');
+
+    axios.delete(`/delete-employee/${payload.id}`).then(res => {
+        Vue.prototype.$notify({
+            title: 'Success',
+            message: res.data.message,
+            type: 'success',
+        })
+
+        removeLoader();
     })
 }
