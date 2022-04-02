@@ -2,7 +2,8 @@
   <div class="container">
     <el-card class="box-card">
       <div slot="header" class="clearfix">
-        <el-page-header @back="goBack" :content="`${scope} form`"> </el-page-header>
+        <el-page-header @back="goBack" :content="`${scope} form`">
+        </el-page-header>
       </div>
       <div>
         <el-form ref="employeeForm" :model="form" label-width="120px">
@@ -48,8 +49,8 @@
 <script>
 export default {
   name: "employee-form",
-  props:{
-    scope:String
+  props: {
+    scope: String,
   },
   mounted() {
     console.log("Component mounted.");
@@ -69,7 +70,14 @@ export default {
       window.location.href = "/employees";
     },
     saveForm(formName) {
-      alert(formName);
+      this.$refs[formName].validate((valid) => {
+        if (valid) {
+          this.$store.dispatch('saveEmployee', this.form);
+        } /*else {
+          console.log("error submit!!");
+          return false;
+        }*/
+      });
     },
   },
 };

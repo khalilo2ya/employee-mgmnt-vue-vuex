@@ -8,7 +8,7 @@ import  * as actions from './actions.js';
 
 Vue.use(Vuex);
 
-export const store = new Vuex.store({
+export const store = new Vuex.Store({
     modules:{
 
     },
