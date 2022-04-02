@@ -22,6 +22,7 @@ Route::get('/about', function () {
 });
 
 Route::get('add-employee', [EmployeeController::class, 'create']);
+Route::post('save-employee', [EmployeeController::class, 'storeEmployee']);
 
 Auth::routes();
 

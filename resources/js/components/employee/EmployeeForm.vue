@@ -6,7 +6,7 @@
         </el-page-header>
       </div>
       <div>
-        <el-form ref="employeeForm" :model="form" label-width="120px">
+        <el-form ref="employeeForm" :model="form" >
           <el-row :guuter="10">
             <el-form-item label="Name" required prop="name">
               <el-input
@@ -46,14 +46,12 @@
   </div>
 </template>
 
+
 <script>
 export default {
-  name: "employee-form",
+  name: 'employee-form',
   props: {
     scope: String,
-  },
-  mounted() {
-    console.log("Component mounted.");
   },
   data() {
     return {
@@ -62,23 +60,20 @@ export default {
         department: null,
         section: null,
         email: null,
-      },
-    };
+      }
+    }
   },
   methods: {
     goBack() {
-      window.location.href = "/employees";
+      window.location.href = '/employees';
     },
     saveForm(formName) {
       this.$refs[formName].validate((valid) => {
         if (valid) {
           this.$store.dispatch('saveEmployee', this.form);
-        } /*else {
-          console.log("error submit!!");
-          return false;
-        }*/
-      });
-    },
-  },
-};
+        }
+      })
+    }
+  }
+}
 </script>

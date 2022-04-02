@@ -7275,13 +7275,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: "employee-form",
+  name: 'employee-form',
   props: {
     scope: String
-  },
-  mounted: function mounted() {
-    console.log("Component mounted.");
   },
   data: function data() {
     return {
@@ -7295,7 +7293,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     goBack: function goBack() {
-      window.location.href = "/employees";
+      window.location.href = '/employees';
     },
     saveForm: function saveForm(formName) {
       var _this = this;
@@ -7304,11 +7302,6 @@ __webpack_require__.r(__webpack_exports__);
         if (valid) {
           _this.$store.dispatch('saveEmployee', _this.form);
         }
-        /*else {
-        console.log("error submit!!");
-        return false;
-        }*/
-
       });
     }
   }
@@ -7339,12 +7332,6 @@ window.Vue = (__webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js
 vue__WEBPACK_IMPORTED_MODULE_3__["default"].use((element_ui__WEBPACK_IMPORTED_MODULE_0___default()));
 vue__WEBPACK_IMPORTED_MODULE_3__["default"].component('example-component', (__webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue")["default"]));
 vue__WEBPACK_IMPORTED_MODULE_3__["default"].component('employee-form', (__webpack_require__(/*! ./components/employee/EmployeeForm.vue */ "./resources/js/components/employee/EmployeeForm.vue")["default"]));
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
-
 var app = new vue__WEBPACK_IMPORTED_MODULE_3__["default"]({
   store: _store_index_js__WEBPACK_IMPORTED_MODULE_1__.store,
   el: '#app'
@@ -7406,7 +7393,7 @@ Object(function webpackMissingModule() { var e = new Error("Cannot find module '
 var loader = null;
 
 function displayLoader() {
-  var loadingText = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "loading...";
+  var loadingText = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "Loading...";
   loader = vue__WEBPACK_IMPORTED_MODULE_1__["default"].prototype.$loading({
     lock: true,
     text: loadingText,
@@ -92453,10 +92440,7 @@ var render = function () {
           [
             _c(
               "el-form",
-              {
-                ref: "employeeForm",
-                attrs: { model: _vm.form, "label-width": "120px" },
-              },
+              { ref: "employeeForm", attrs: { model: _vm.form } },
               [
                 _c(
                   "el-row",
